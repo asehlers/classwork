@@ -33,9 +33,9 @@
       //  after 15 seconds, execute the timeUp function
       // ---------------------
         //CODE STEP TWO HERE
-        setTimeout(fiveSeconds, 5000);
-        setTimeout(tenSeconds, 10000);
-        setTimeout(timeUp, 15000);
+      setTimeout(fiveSeconds, 5000);
+      // setTimeout(tenSeconds, 10000);
+      // setTimeout(timeUp, 15000);
       // ---------------------
 
 
@@ -43,12 +43,13 @@
       // Fill in the blanks to these functions.
       function fiveSeconds() {
 
-        $("#time-left").html("<h2>10 Seconds Left!</h2>");
+        $("#time-left").html("<h2>About 10 Seconds Left!</h2>");
         // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
         // console log 10 seconds left
-        console.log("10 seconds left");
+        console.log("About 10 seconds left");
         // alert("10 seconds left"); 
-        
+        setTimeout(tenSeconds, 5000);
+
       }
 
 
@@ -56,10 +57,10 @@
 
         // in the element with an id of time-left add an h2 saying About 5 Seconds Left!
         // console log 5 seconds left
-        $("#time-left").html("<h2>5 Seconds Left!</h2>");
-        console.log("5 seconds left");
+        $("#time-left").html("<h2>About 5 Seconds Left!</h2>");
+        console.log("About 5 seconds left");
         // alert("5 Seconds left");
-
+        setTimeout(timeUp, 5000);
       }
 
 
