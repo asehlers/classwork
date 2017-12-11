@@ -66,7 +66,7 @@
     // This on click function has been completed for us.
     $("#heads").on("click", function() {
       headsCount++;
-      $("#heads-chosen").text(headsCount);
+      $("#heads-chosen").html(headsCount);
       $("#guess").html("<b>Heads</b>");
       flipThatCoin(0);
     });
@@ -80,7 +80,7 @@
           //  Find the div with an id of guess. Update it with the word "Tails" bolded.
           //  Call the flipThatCoin function and pass value 1 into it.
       tailsCount++;
-      $("#tails-chosen").text(tailsCount);
+      $("#tails-chosen").html(tailsCount);
       $("#guess").html("<b>Tails</b>");
       flipThatCoin(1);
     });
