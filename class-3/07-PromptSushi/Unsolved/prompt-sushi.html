@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chocolate Prompt - Unsolved</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var likeChocolate = confirm("Do you like Chocolate?");
+    if(!likeChocolate){
+    	alert("how dare you!");
+    }
+    var favChocolate = prompt("What kind \n of chocolate do you like?");
+
+    alert("Likes Chocolate: " + likeChocolate);
+    alert("Favorite Chocolate: " + favChocolate);
+    if(favChocolate === "Dark Chocolate"){
+    	alert("Good Choice");
+    }
+    else if(favChocolate === "alergic"){
+    	alert("sucks to be you");
+    }
+
+    document.write(likeChocolate + "<br>");
+    document.write(favChocolate);
+
+    </script>
+
+  </body>
+</html>

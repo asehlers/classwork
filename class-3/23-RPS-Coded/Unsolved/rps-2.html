@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+
+<body>
+
+  <div id="game">
+    <span>User Picked: </span><span id="user-Pick">-</span>
+    <br>
+    <span>Computer Picked: </span><span id="computer-Pick">-</span>
+    <br>
+    <span>Wins: </span><span id="user-Wins">0</span>
+    <br>
+    <span>Losses: </span><span id="computer-Wins">0</span>
+    <br>
+    <span>Ties: </span><span id="tied-Games">0</span>
+
+  </div>
+
+  <script type="text/javascript">
+
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];
+    var userPick = document.getElementById("user-Pick");
+    var computerPick = document.getElementById("computer-Pick");
+    var userWins = document.getElementById("user-Wins");
+    var computerWins = document.getElementById("computer-Wins");
+    var tiedGames = document.getElementById("tied-Games");
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      userPick.textContent = userGuess;
+      computerPick.textContent = computerGuess;
+
+      // console.log(userWins.textContent);
+      // console.log(parseInt(userWins.textContent));
+      // console.log(parseInt(userWins.textContent)+1);
+      // console.log((parseInt(userWins.textContent)+1).toString());
+
+      if(userGuess == "r"){
+        if(computerGuess == "r"){
+          // console.log(parseInt(tiedGames.textContent));
+          // tiedGames.textContent = ++ties;
+          tiedGames.textContent = (parseInt(tiedGames.textContent)+1).toString();
+        }
+        else if(computerGuess == "p"){
+          computerWins.textContent = (parseInt(computerWins.textContent)+1).toString();
+        }
+        else if(computerGuess == "s"){
+          userWins.textContent = (parseInt(userWins.textContent)+1).toString();
+        }
+      }
+      else if(userGuess == "s"){
+        if(computerGuess == "s"){
+          // console.log(parseInt(tiedGames.textContent));
+          // tiedGames.textContent = ++ties;
+          tiedGames.textContent = (parseInt(tiedGames.textContent)+1).toString();
+        }
+        else if(computerGuess == "r"){
+          computerWins.textContent = (parseInt(computerWins.textContent)+1).toString();
+        }
+        else if(computerGuess == "p"){
+          userWins.textContent = (parseInt(userWins.textContent)+1).toString();
+        }
+
+      }
+      else if(userGuess == "p"){
+        if(computerGuess == "p"){
+          // console.log(parseInt(tiedGames.textContent));
+          // tiedGames.textContent = ++ties;
+          tiedGames.textContent = (parseInt(tiedGames.textContent)+1).toString();
+        }
+        else if(computerGuess == "s"){
+          computerWins.textContent = (parseInt(computerWins.textContent)+1).toString();
+        }
+        else if(computerGuess == "r"){
+          userWins.textContent = (parseInt(userWins.textContent)+1).toString();
+        }
+      }
+      else{
+        alert("invalid choice! you lose!");
+        computerWins.textContent = (parseInt(computerWins.textContent)+1).toString();
+      }
+
+    };
+  </script>
+
+</body>
+
+</html>

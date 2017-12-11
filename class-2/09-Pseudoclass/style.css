@@ -1,0 +1,35 @@
+.first:hover{
+	color:red;
+	font-size:36px;
+}
+
+.second:active{
+	background-color:black;
+	color:white;
+	padding:40px;
+}
+
+.third:focus{
+	font-family:cursive;
+	color:green;
+	background-color:red;
+}
+
+.third:active{
+	color:blue;
+	font-family:times, serif;
+	background-color:white;
+}
+
+.fourth:fullscreen{
+	color:hotpink;
+	background-color:orange;
+	font-size:40px;
+	margin:60px;
+}
+
+.btn-lg:active{
+	background-color:red;
+	color:green;
+	font-size:2px;
+}

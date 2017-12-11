@@ -1,0 +1,21 @@
+/**
+ * Google Fonts Demo
+ **/
+
+/* Add in the Google Fonts of your choice */
+.thought1{
+	font-family: 'Atomic Age', cursive;
+}
+
+.thought2{
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.thought3{
+	font-family: 'Lobster', cursive;
+}
+
+
+.fa-superpowers{
+	color: red;
+}

@@ -1,0 +1,43 @@
+
+.outside {
+	position: fixed;
+	top:0;
+	left:0;
+	padding:20px;
+/*	height: 100px;
+	width: 100px;*/
+	background-color:#eeeeee;
+	margin:0px;
+
+}
+
+main {
+	width:45%;
+	text-align: left;
+	margin: auto;
+}
+
+div {
+	text-align: center;
+
+}
+
+h2{
+	margin-top:40px;
+}
+
+.inner{
+	position: relative;
+	background-color:#eeeeee;
+	padding:1%;
+	width: 98%;
+	height:140px;
+}
+
+.innermost{
+	position: absolute;
+	background-color:#999999;
+	padding:5px 20px 5px 20px;
+	bottom: 0;
+	right: -20px;
+}
