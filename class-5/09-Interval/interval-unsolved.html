@@ -34,6 +34,7 @@
 
     function run() {
       intervalId = setInterval(decrement, 1000);
+      $("#resume").attr("disabled", "disabled");
     }
 
     function decrement() {
@@ -47,12 +48,15 @@
         stop();
 
         alert("Time Up!");
+
+        number = 10;
       }
     }
 
     function stop() {
 
       clearInterval(intervalId);
+      $("#resume").removeAttr("disabled");
     }
 
     run();

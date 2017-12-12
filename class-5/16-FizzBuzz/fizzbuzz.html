@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var temp = "";
+		for(var i = 1; i <= 100; i++){
+			if(i%3 === 0){
+				temp += "Fizz";
+			}
+			if(i%5 === 0){
+				temp += "Buzz";
+			}
+			if(temp === ""){
+				console.log(i);
+			}
+			else{
+				console.log(temp);
+				temp = "";
+			}
+		}
+	</script>
+</body>
+</html>
