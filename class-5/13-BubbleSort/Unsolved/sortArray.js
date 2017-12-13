@@ -69,3 +69,28 @@ var numbers = [
   181, 485, 495, 81, 169, 294, 79, 400, 92, 104, 249
 
 ];
+
+
+  var start = document.getElementById("start");
+  start.innerHTML = numbers.toString();
+
+(document.getElementsByTagName("button"))[0].onclick = function (){
+
+
+  var temp;
+  for(var i = 0; i < numbers.length-1; i++){
+    for(var j = 0; j < numbers.length-i; j++){
+      if(numbers[j] > numbers[j+1]){
+        temp = numbers[j];
+        numbers[j] = numbers[j+1];
+        numbers[j+1] = temp;
+        console.log(numbers[j] + "," + numbers[j+1]);
+      }
+    }
+  }
+  var result = document.getElementById("result");
+  result.innerHTML = numbers.toString();
+}
+
+
+
