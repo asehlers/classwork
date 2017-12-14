@@ -15,10 +15,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
     // This is our API key. Add your own API key between the ""
-    var APIKey = "";
+    var APIKey = "f97192c2bfc361a24840dcf852a36b81";
 
     // Here we are building the URL we need to query the database
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Bujumbura,Burundi&appid=" + APIKey;
+    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Bujumbura,Burundi&appid=" + APIKey;
+    var queryURL = "http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=f97192c2bfc361a24840dcf852a36b81";
 
     // We then created an AJAX call
     $.ajax({
@@ -27,11 +28,20 @@
     }).done(function(response) {
 
       // Create CODE HERE to Log the queryURL
+      console.log("queryURL: " + queryURL);
       // Create CODE HERE to log the resulting object
+      console.log(response);
       // Create CODE HERE to transfer content to HTML
+      $(".city").html(response.name);
+      $(".wind").html(response.wind.speed);
+      $(".humidity").html(response.main.humidity);
+
       // Create CODE HERE to calculate the temperature (converted from Kelvin)
+      var fahrenheitTemp = (response.main.temp -273.15) *1.8 + 32;
+      console.log(fahrenheitTemp);
       // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
       // Create CODE HERE to dump the temperature content into HTML
+      $(".temp").html(fahrenheitTemp);
 
     });
   </script>

@@ -47,6 +47,15 @@
 
         // CODE GOES HERE
 
+        $.ajax({
+          url: queryURL,
+          method: 'GET'
+        }).done(function(response){
+          console.log(response);
+          // $("#movie-view").append("<p>"+response.Title+"</p><p>"+response.Plot+"</p>");
+          $("#movie-view").append("<section>" + JSON.stringify(response) + "</section>");
+        });
+
         // =================================================================
       });
     </script>

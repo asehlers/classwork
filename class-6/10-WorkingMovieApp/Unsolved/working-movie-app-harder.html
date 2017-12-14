@@ -49,7 +49,36 @@
           url: queryURL,
           method: "GET"
         }).done(function(response) {
+          console.log(response);
 
+          var currentMovie = $("<div>");
+          var movieImg = $("<img>");
+          movieImg.attr("src", response.Poster);
+          console.log(movieImg);
+
+          var movieRating = $("<section>");
+          movieRating.html("Rating: " + response.Rated);
+          console.log(movieRating);
+
+          var releaseDate = $("<section>");
+          releaseDate.html("Release Date: " + response.Released);
+          console.log(releaseDate);
+
+          var plot = $("<section>");
+          plot.html("Plot: "+response.Plot);
+
+          var movieTime = $("<section>");
+          movieTime.html("Runtime: "+ response.Runtime);
+
+          currentMovie.append(movieImg);
+          currentMovie.append(movieRating);
+          currentMovie.append(releaseDate);
+          currentMovie.append(plot);
+          currentMovie.append(movieTime);
+          
+          console.log(currentMovie);
+          $("#movies-view").html(currentMovie);
+          // console.log($("#movies-view"));
           // YOUR CODE GOES HERE!!!
 
         });

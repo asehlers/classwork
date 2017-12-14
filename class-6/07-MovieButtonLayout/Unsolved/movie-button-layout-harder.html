@@ -29,21 +29,33 @@
       <!-- Button triggers new movie to be added -->
       <input id="add-movie" type="submit" value="Add a Movie Bro">
     </form>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script type="text/javascript">
       // Initial array of movies
       var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
 
       // Function for displaying movie data
       function renderButtons() {
-
+        $("#movies-view").empty();
+        for(var i = 0; i < movies.length; i++){
+          $("#movies-view").append("<button>" + movies[i] + "</button>");
+        }
         // YOUR CODE GOES HERE
 
       }
 
       // This function handles events where one button is clicked
-      $("#add-movie").on("click", function() {
+      $("#add-movie").on("click", function(event) {
+        event.preventDefault();
+        console.log(movies);
 
+        movies.push($("#movie-input").val());
+        // $("#movies-view").append("<button>" + movies[movies.length -1] + "</button>");
+        // console.log(movies);
+        renderButtons();
+        $("#movie-input").val ('');
         // YOUR CODE GOES HERE
 
       });
