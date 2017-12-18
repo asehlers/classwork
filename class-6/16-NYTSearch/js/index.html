@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<!-- <div id="add-q"></div> -->
+	<thead></thead>
+    <input id="searchTerm" type="text">
+    <input id="startDate" type="text">
+    <input type="text" id="endDate">
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+	var APIKey = "9f7ffdfe7c9d477ebeeafd2e8c0b26c7";
+
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+
+    var queryObj = {'api-key': "9f7ffdfe7c9d477ebeeafd2e8c0b26c7"};
+    console.log($("#searchTerm").val());
+
+    if($("#searchTerm").val() == ""){
+        console.log("no search term");
+    }
+    else{
+        queryObj.q = $("#searchTerm").val();
+    }
+
+
+
+    queryURL += '?' + $.param(
+    	queryObj
+    );
+
+    $.ajax({
+    	url: queryURL,
+    	method: "GET"
+    }).done(function(ajaxOutput) {
+    	console.log(ajaxOutput);
+
+    	for (var i = 0; i < ajaxOutput.response.docs.length; i++) {
+    		
+        var temp = "";
+        if(ajaxOutput.response.docs[i].byline !== undefined){
+            temp = ajaxOutput.response.docs[i].byline.original;
+        }
+
+    	$("#thead").append("<tr><th>" + i +"</th><th><a>" + ajaxOutput.response.docs[i].headline.print_headline + "</a></th><th>" + temp + "</th><th>" + ajaxOutput.response.docs[i].pub_date + "</th><th>" + ajaxOutput.response.docs[i].snippet+ "</th></tr>");
+        console.log("<tr><th>" + i +"</th><th><a>" + ajaxOutput.response.docs[i].headline.print_headline + "</a></th><th>" + temp + "</th><th>" + ajaxOutput.response.docs[i].pub_date + "</th><th>" + ajaxOutput.response.docs[i].snippet+ "</th></tr>");
+    }
+     
+
+      console.log(queryURL);
+      
+      // console.log(response);
+  });
+
+
+
+</script>
+
+</body>
+</html>
