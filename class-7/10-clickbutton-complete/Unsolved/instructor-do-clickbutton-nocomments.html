@@ -6,25 +6,26 @@
     <meta charset="UTF-8">
     <title>Click Button with Firebase!</title>
 
-    <!-- -->
+    <!-- link to firebase-->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
   </head>
 
   <body>
 
-    <!-- -->
+    <!-- creates header with span linked to click-value -->
     <h1>Ouch! You've clicked me <span id="click-value"></span> times!</h1>
 
-    <!-- -->
+    <!-- button to click which will increment click value-->
     <button id="click-button">Click Me!!!!</button>
 
-    <!-- -->
+    <!-- link to jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- ================================================================================== -->
     <script>
 
+    // configuration for firebase access
     var config = {
       apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
       authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
@@ -35,7 +36,7 @@
     firebase.initializeApp(config);
 
     // VARIABLES
-    // --------------------------------------------------------------------------------
+    // creates database to refer to firebase and clickCounter to track number of times the button has been clicked
 
     var database = firebase.database();
     var clickCounter = 0;
@@ -43,6 +44,7 @@
     // FUNCTIONS + EVENTS
     // --------------------------------------------------------------------------------
 
+    // sets up on click event for the click button which increments click count and updates the database
     $("#click-button").on("click", function() {
       clickCounter++;
       database.ref().set({
@@ -53,6 +55,8 @@
     // MAIN PROCESS + INITIAL CODE
     // --------------------------------------------------------------------------------
 
+    //references the firebase to log current value update click value. Get clickCount from data base.
+    //has aditional part for failed read
     database.ref().on("value", function(snapshot) {
       console.log(snapshot.val());
       $("#click-value").text(snapshot.val().clickCount);

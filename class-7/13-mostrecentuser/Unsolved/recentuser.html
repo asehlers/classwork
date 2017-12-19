@@ -78,34 +78,94 @@
   <script src="https://code.jquery.com/jquery.js"></script>
 
   <!-- LINK TO FIREBASE GOES HERE -->
-  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
-  <!-- Script -->
-  <script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBhRMca4axcM_3CI2ox2eJhopcXaX_1rw4",
+    authDomain: "classworkdemo1.firebaseapp.com",
+    databaseURL: "https://classworkdemo1.firebaseio.com",
+    projectId: "classworkdemo1",
+    storageBucket: "classworkdemo1.appspot.com",
+    messagingSenderId: "720078777874"
+  };
+  firebase.initializeApp(config);
+
+  var name = "";
+  var email = "";
+  var age = "";
+  var comment = "";
+  var database = firebase.database();
+
+  database.ref().on("value", function(snapshot){
+    console.log(snapshot.val().userName)
+    if(snapshot.val() === null){
+      database.ref().set({
+        userName: "Jimmy John",
+        userEmail: "jimmy@john.edu",
+        userAge: "27",
+        userComment: "I'm signing up, because I want to spread sandwiches to the world."
+      });
+    }
+    else if(snapshot.val().userName == null || snapshot.val().userEmail == null || snapshot.val().userAge == null || snapshot.val().userComment == null){
+      database.ref().set({
+        userName: "Jimmy John",
+        userEmail: "jimmy@john.edu",
+        userAge: "27",
+        userComment: "I'm signing up, because I want to spread sandwiches to the world."
+      });
+    }
+    else
+    {
+      name = snapshot.val().userName;
+      email = snapshot.val().userEmail;
+      age = snapshot.val().userAge;
+      comment = snapshot.val().userComment;
+      updateUser();
+    }
+  }, function(error){
+    console.log(error);
+  });
     //  START CODING BELOW!!
 
     // Initialize Firebase
 
 
     // Create a variable to reference the database
-
+   
 
     // Capture Button Click
     $("#add-user").on("click", function() {
       // Don't refresh the page!
       event.preventDefault();
 
+      name = $("#name-input").val().trim();
+      email = $("#email-input").val().trim();
+      age = $("#age-input").val().trim();
+      comment = $("#comment-input").val().trim();
       // YOUR TASK!!!
 
       // Code in the logic for storing and retrieving the most recent user.
-
+      database.ref().set({
+        userName: name,
+        userEmail: email,
+        userAge: age,
+        userComment: comment
+      });
+      // updateUser();
       // Don't forget to provide initial data to your Firebase database.
 
     });
 
 
     // Firebase watcher + initial loader HINT: .on("value")
-
+    function updateUser(){
+      $("#name-display").html(name);
+      $("#email-display").html("Email: " + email);
+      $("#age-display").html("Age: " + age);
+      $("#comment-display").html(comment);
+    }
 
     // Create Error Handling
   </script>

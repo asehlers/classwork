@@ -25,19 +25,32 @@
   <!-- ================================================================================== -->
 
   <!-- Firebase JavaScript Link -->
-  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
 
   <script>
     // Initialize Firebase
     // This is the code we copied and pasted from our app page
-    var config = {
-      apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
-      authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
-      databaseURL: "https://fir-click-counter-7cdb9.firebaseio.com",
-      storageBucket: "fir-click-counter-7cdb9.appspot.com"
-    };
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBhRMca4axcM_3CI2ox2eJhopcXaX_1rw4",
+    authDomain: "classworkdemo1.firebaseapp.com",
+    databaseURL: "https://classworkdemo1.firebaseio.com",
+    projectId: "classworkdemo1",
+    storageBucket: "classworkdemo1.appspot.com",
+    messagingSenderId: "720078777874"
+  };
+  firebase.initializeApp(config);
 
-    firebase.initializeApp(config);
+    // var config = {
+    //   apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
+    //   authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
+    //   databaseURL: "https://fir-click-counter-7cdb9.firebaseio.com",
+    //   storageBucket: "fir-click-counter-7cdb9.appspot.com"
+    // };
+
+    // firebase.initializeApp(config);
 
     // Variables
     // ================================================================================

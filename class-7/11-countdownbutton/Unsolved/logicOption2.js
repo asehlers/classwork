@@ -1,15 +1,15 @@
 // Initialize Firebase (YOUR OWN APP)
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCdF2BOqAuAkOFXrMXJrZjL1WUPZtv9dwM",
-  authDomain: "myfirstproject-12547.firebaseapp.com",
-  databaseURL: "https://myfirstproject-12547.firebaseio.com",
-  projectId: "myfirstproject-12547",
-  storageBucket: "myfirstproject-12547.appspot.com",
-  messagingSenderId: "692818555424"
-};
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBhRMca4axcM_3CI2ox2eJhopcXaX_1rw4",
+    authDomain: "classworkdemo1.firebaseapp.com",
+    databaseURL: "https://classworkdemo1.firebaseio.com",
+    projectId: "classworkdemo1",
+    storageBucket: "classworkdemo1.appspot.com",
+    messagingSenderId: "720078777874"
+  };
+  firebase.initializeApp(config);
 
-firebase.initializeApp(config);
 
 var database = firebase.database();
 
@@ -34,11 +34,12 @@ database.ref().on("value", function(snapshot){
 
 		clickCounter = snapshot.val().clickCount;
 
-		$("#click-value").html(clickCounter);
+		$("#click-value").html(clickCounter.toString(16));
 
 		console.log("ClickCounter: " + clickCounter);
 	}
-})
+  console.log(snapshot.val().clickCount);
+});
 
 // Print the initial data to the console.
 
@@ -99,6 +100,6 @@ $("#restart-button").on("click", function() {
   console.log(clickCounter);
 
   // Change the HTML Values
-  $("#click-value").html(clickCounter);
+  $("#click-value").html(clickCounter.toString(16));
 
 });
