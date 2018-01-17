@@ -1,0 +1,4 @@
+
+Name: ${userSearch.name} Location: ${userSearch.location} Date: ${userSearch.date}
+Name: ${userSearch.name} Location: ${userSearch.location} Date: ${userSearch.date}
+Name: ${userSearch.name} Location: ${userSearch.location} Date: ${userSearch.date}
