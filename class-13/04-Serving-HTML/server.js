@@ -12,7 +12,8 @@ var server = http.createServer(handleRequest);
 function handleRequest(req, res) {
 
   // Here we use the fs package to read our index.html file
-  fs.readFile(__dirname + "/index.html", function(err, data) {
+  //__dirname node keywordnod
+  fs.readFile("./index.html", function(err, data) {
 
     // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
     // an html file.

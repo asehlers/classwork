@@ -15,7 +15,7 @@ function handleRequest(req, res) {
 
   // Capture the url the request is made to
   var path = req.url;
-
+  console.log(req);
   // Depending on the URL, display a different HTML file.
   switch (path) {
 

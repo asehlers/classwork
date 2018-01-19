@@ -1,4 +1,5 @@
 // Require/import the HTTP module
+//this is an internal node library
 var http = require("http");
 
 // Define a port to listen for incoming requests
