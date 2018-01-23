@@ -22,6 +22,8 @@ var lunches = [
 ];
 
 // Routes
+//render uses view engine to display passed parameters
+//1st arg is name of view to render and 2nd is data
 app.get("/weekday", function(req, res) {
   res.render("index", lunches[0]);
 });
@@ -34,6 +36,7 @@ app.get("/lunches", function(req, res) {
   res.render("all-lunches", {
     foods: lunches,
     eater: "david"
+    //add layout property here to adjust layout
   });
 });
 

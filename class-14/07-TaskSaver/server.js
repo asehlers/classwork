@@ -38,7 +38,7 @@ app.get("/", function(req, res) {
 
     // Test it
     // console.log('The solution is: ', data);
-
+    console.log("The solution is: " + data);
     // Test it
     // return res.send(data);
 
@@ -59,7 +59,7 @@ app.post("/", function(req, res) {
   // https://en.wikipedia.org/wiki/SQL_injection
   connection.query("INSERT INTO tasks (task) VALUES (?)", [req.body.task], function(err, result) {
     if (err) throw err;
-
+    //runs post to change then makes get request
     res.redirect("/");
   });
 });
