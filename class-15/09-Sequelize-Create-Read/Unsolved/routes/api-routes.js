@@ -29,7 +29,6 @@ module.exports = function(app) {
     // console.log(req.body);
     db.Todo.create(req.body).then(function(data){
       console.log(data);
-      location.reload();
     });
   });
 
