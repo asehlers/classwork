@@ -24,7 +24,7 @@ var orm = {
   },
   findWhoHasMost: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
     var queryString =
-      "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+      "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC limit 1";
 
     connection.query(
       queryString,

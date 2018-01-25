@@ -1,5 +1,19 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
+  $(".delete-cat").on("click", function(event){
+    var id = $(this).data("id");
+    
+    $.ajax("/api/cats/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted cat with id " + id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    )
+  });
+
   $(".change-sleep").on("click", function(event) {
     var id = $(this).data("id");
     var newSleep = $(this).data("newsleep");
