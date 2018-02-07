@@ -18,6 +18,33 @@ var UserSchema = new Schema({
    * TIP: The regex for checking if a string is an email is: /.+\@.+\..+/
    * Use that with the model attribute that checks for a valid match.
    * -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ */
+
+   username: {
+     type: String,
+     trim: true,
+     required: true
+   },
+
+   password: {
+     type: String,
+     required: true,
+     validate: [
+       function(input){
+         return input.length >= 6;
+       },
+       "password must be longer"
+     ]
+   },
+
+   email: {
+     type: String,
+     match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
+   },
+
+   userCreated: {
+     type: Date,
+     default: Date.now
+   }
 });
 
 // This creates our model from the above schema, using mongoose's model method

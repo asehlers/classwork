@@ -24,11 +24,16 @@ function displayResults(data) {
   var out = "";
   for(var i = 0; i < data.length; i++){
     var tr = $("<tr>");
-    tr.append("<th>"+data[i].name+"</th>");
-    tr.append("<th>"+data[i].legs+"</th>");
-    tr.append("<th>"+data[i].class+"</th>");
-    tr.append("<th>"+data[i].weight+"</th>");
-    tr.append("<th>"+data[i].otherName+"</th>");
+    tr.append("<td>"+data[i].name+"</td>");
+    tr.append("<td>"+data[i].legs+"</td>");
+    tr.append("<td>"+data[i].class+"</td>");
+    tr.append("<td>"+data[i].weight+"</td>");
+    tr.append("<td>"+data[i].otherName+"</td>");
+    // tr.prepend("<td>").children().text(data[i].name);
+    // tr.prepend("<td>").children().text(data[i].legs);
+    // tr.prepend("<td>").children().text(data[i].class);
+    // tr.prepend("<td>").children().text(data[i].weight);
+    // tr.prepend("<td>").children().text(data[i].otherName);
     $("tbody").append(tr);
   }
 }
@@ -41,12 +46,12 @@ $("#name-sort").on("click", function () {
   $.get("/name", function(data) {
     console.log("name pressed");
     displayResults(data);
-  })
+  });
 });
 
 $("#weight-sort").on("click", function () {
   $.get("/weight", function(data) {
     console.log("weight pressed");
     displayResults(data);
-  })
+  });
 });

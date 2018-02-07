@@ -38,7 +38,15 @@ app.get("/", function(req, res) {
 // This route will retrieve all of the data
 // from the scrapedData collection as a json (this will be populated
 // by the data you scrape using the next route)
-
+app.get("/all", function(req, res) {
+  db.scrapedData.find({}, function(err, data){
+    if(err){
+      console.log(err);
+    }else{
+      res.json(data);
+    }
+  });
+});
 // Route 2
 // =======
 // When you visit this route, the server will
@@ -47,7 +55,33 @@ app.get("/", function(req, res) {
 // TIP: Think back to how you pushed website data
 // into an empty array in the last class. How do you
 // push it into a MongoDB collection instead?
+app.post("/populate/:class", function(req,res){
+  request("http://www.d20pfsrd.com/classes/core-classes/"+req.params.class, function(error, response, html) {
 
+    // Load the HTML into cheerio and save it to a variable
+    // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+    var $ = cheerio.load(html);
+
+    // An empty array to save the data that we'll scrape
+    var results = [];
+
+    // Select each element in the HTML body from which you want information.
+    // NOTE: Cheerio selectors function similarly to jQuery's selectors,
+    // but be sure to visit the package's npm page to see how it works
+    $("table tbody tr td a").each(function(i, element) {
+      var link = "http://www.d20pfsrd.com/classes/core-classes/" + req.params.class+$(element).attr("href");
+      var title = $(element).children().text();
+      // Save these results in an object that we'll push into the results array we defined earlier
+      if(title) {
+      results.push({
+        title: title,
+        link: link
+      });
+      db.scrapedData.insert({"class":req.params.class, "title": title, "link":link});
+      }
+    });
+  });
+});
 /* -/-/-/-/-/-/-/-/-/-/-/-/- */
 
 // Listen on port 3000
