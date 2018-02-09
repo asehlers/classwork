@@ -7,29 +7,22 @@ const princesses = [
 
 // log the name of each princess, follow by a colon, followed by their age
 // forEach: executes a provided function once for each array element
-princesses.forEach(function(princess) {
-  console.log(`${princess.name}: ${princess.age}`);
-});
+princesses.forEach(princess =>   console.log(`${princess.name}: ${princess.age}`));
 
 // create an array of just the names from the princesses array
 // map: creates a new array with the results of calling a provided function on every element in the calling array
-const names = princesses.map(function(princess) {
-  return princess.name;
-});
+const names = princesses.map(princess => princess.name);
 console.log("names: ", names);
 
 // using the `names` array, get only those names that start with an 'M'
 // filter: creates a new array with elements that pass the test of the provided function
-const mNames = names.filter(function(name) {
-  return name.startsWith("M");
-});
+const mNames = names.filter(name => name.startsWith("M"));
+
 console.log("m-names: ", mNames);
 
 // get a single value from the data: the average age of all of the princesses
 // map: applies a function against an "accumulator" and each element in the array (from left to right) to reduce it to a single value.
-const sum = princesses.reduce(function(sum, princess) {
-  return sum + princess.age;
-}, 0);
+const sum = princesses.reduce((sum, princess) => sum + princess.age, 0);
 const average = sum / princesses.length;
 console.log("average age: ", average);
 

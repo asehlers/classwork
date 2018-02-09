@@ -13,7 +13,7 @@ console.log(teacher); // Nick
 // default assignment
 const { course = "FullStack" } = instructor;
 console.log(course); // 'FullStack'
-
+// console.log(instructor);
 // function parameters can also use destructuring and default values!
 const divide = (a = 4, b = 2) => a / b;
 console.log(divide()); // 2

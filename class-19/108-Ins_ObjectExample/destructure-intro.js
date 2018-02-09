@@ -21,7 +21,8 @@ var others = racers.slice(2); // ['Aldar Beedo', 'Ebe E. Endocott']
 racers = [...racers, "Sebulba"];
 
 // ES6 - Array destructuring also using `...` rest pattern
-var [first, second, ...others] = racers;
+var [first, second, waffle, ...others] = racers;
 console.log(first); // Anakin
 console.log(second); // Gasgano
+console.log(waffle);
 console.log(others); // ['Aldar Beedo', 'Ebe E. Endocott']

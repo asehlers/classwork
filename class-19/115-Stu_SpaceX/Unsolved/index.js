@@ -1,9 +1,17 @@
 // import axios, a small library similar to $.ajax for making AJAX requests
 import axios from "axios";
+import Launch from "./Launch.js";
 
 // Get SpaceX launch data and log the response
 // If there is an error making the request, log the error
 axios
   .get("https://api.spacexdata.com/v2/launches")
-  .then(response => console.log(response))
+  .then(response => getFailureData(response.data))
   .catch(err => console.log(err));
+
+  cosnt getFailureData = (data) => {
+    data.filter(rawLaunch => rawLaunch.rocket.rocket_id === ROCKETID)
+      .map(relevantLaunch => new Launch(relevantLaunch))
+      .filter(releventLaunch => relevantLaunch.wasFailure())
+      .forEach(failedLaunch => console.log(failedLaunch.launchInfo()));
+  };

@@ -27,21 +27,26 @@ let avatars = [
 
 // 1. Update this function so it uses array spread to append the new avatar to the array
 const addAvatar = function(avatar) {
-  return avatars.concat(avatar)
+  return [...avatars, avatar];
 };
 
 const greet = function(avatar) {
   // 2. Update this function to use object destructuring to access the avatar object properties
-  const race = avatar.race;
-  const name = avatar.name;
-  const level = avatar.level;
-  const gender = avatar.gender;
-  const className = avatar.className;
+  // const race = avatar.race;
+  // const name = avatar.name;
+  // const level = avatar.level;
+  // const gender = avatar.gender;
+  // const className = avatar.className;
+  const { race, name, level, gender, className } = avatar;
   console.log(`I am ${name}, level ${level} ${gender} ${race} ${className}.`);
 };
 
 // Adds borrub to the list of avatars
 avatars = addAvatar(borrub);
-
+// var [,a,b] = addAvatar(borrub);
+// console.log(a);
+// console.log(b);
 // For each avatar, call the greet function and pass in the avatar as an argument
 avatars.forEach(greet);
+
+

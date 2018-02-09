@@ -47,3 +47,9 @@ Writing out babel-node with the presets can get old quickly. Fortunately, we can
   * the code following `&&` adds the line `alias bnode='babel-node --presets env,stage-2` to your `.bash_profile` file.
   
   * `alias bnode='babel-node --presets env,stage-2` - the `alias` command allows you to create shorthands for commands. For example, we could just type `bnode script.js`, which would run `babel-node --presets env,stage-2 script.js`. This allows us to not have to type out the whole command each time.
+
+
+* alias babellocal= local npm installation  >> ~/.bash_profile
+* echo "alias babelLocal='npm install --save-dev babel-cli babel-preset-env babel-preset-stage-2'" >> ~/.bash_profile
+* reset profile
+* . ~/.bash_profile
