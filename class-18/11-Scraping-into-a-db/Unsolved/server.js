@@ -55,8 +55,8 @@ app.get("/all", function(req, res) {
 // TIP: Think back to how you pushed website data
 // into an empty array in the last class. How do you
 // push it into a MongoDB collection instead?
-app.post("/populate/:class", function(req,res){
-  request("http://www.d20pfsrd.com/classes/core-classes/"+req.params.class, function(error, response, html) {
+app.post("/populate", function(req,res){
+  request("http://jamiedupree.blog.wsbradio.com/"+req.params.class, function(error, response, html) {
 
     // Load the HTML into cheerio and save it to a variable
     // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
@@ -68,8 +68,8 @@ app.post("/populate/:class", function(req,res){
     // Select each element in the HTML body from which you want information.
     // NOTE: Cheerio selectors function similarly to jQuery's selectors,
     // but be sure to visit the package's npm page to see how it works
-    $("table tbody tr td a").each(function(i, element) {
-      var link = "http://www.d20pfsrd.com/classes/core-classes/" + req.params.class+$(element).attr("href");
+    $(".cmListItem").each(function(i, element) {
+      var link = $(element).attr("href");
       var title = $(element).children().text();
       // Save these results in an object that we'll push into the results array we defined earlier
       if(title) {

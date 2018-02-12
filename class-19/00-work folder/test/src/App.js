@@ -1,17 +1,8 @@
 import React from "react";
-import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
-import FriendCard from "./components/FriendCard";
-import friends from "./friends.json";
-const App = () => {
-  const list = friends.map(friend => <FriendCard key={friend.id} name={friend.name} image={friend.image} occupation={friend.occupation} location={friend.location}/> )
 
+// why this exact import
+import Form from "./components/Form";
 
-return (
-  <Wrapper>
-    <Title>Friends List </Title>
-    {list}
-  </Wrapper>
-)};
+const App = () => <Form />;
 
 export default App;
