@@ -21,10 +21,11 @@ class PortfolioContainer extends Component {
           currentPage={this.state.currentPage}
           handlePageChange={this.handlePageChange}
         />
-        {this.state.currentPage == "Home" && <Home />}
-        {this.state.currentPage == "About" && <About />}
-        {this.state.currentPage == "Blog" && <Blog />}
-        {this.state.currentPage == "Contact" && <Contact />}
+        {this.state.currentPage === "Home" && <Home />}
+        {this.state.currentPage === "About" && <About />}
+        {this.state.currentPage === "Blog" && <Blog />}
+        {this.state.currentPage === "Contact" && <Contact />}
+   
       </div>
     );
   }
