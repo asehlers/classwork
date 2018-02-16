@@ -68,7 +68,11 @@ class App extends Component {
           </Row>
           <Row>
             <Col size="xs-12">
-              <h1>Render Recipes Here</h1>
+              <RecipeList >
+              {!this.state.recipes.length ? (
+              <h3> No Recipes Found </h3> ) :
+              (this.state.recipes.map(recipe => <RecipeListItem result={recipe} key={recipe.href}/> ))}
+              </RecipeList>
             </Col>
           </Row>
         </Container>

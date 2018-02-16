@@ -8,19 +8,19 @@ export const RecipeListItem = props => (
     <Container>
       <Row>
         <Col size="xs-4 sm-2">
-          <Thumbnail src="http://img.recipepuppy.com/560556.jpg" />
+        {!props.result.thumbnail ? (<Thumbnail src="http://via.placeholder.com/163x170" />
+              ) : (<Thumbnail src={props.result.thumbnail} />
+              )}
         </Col>
         <Col size="xs-8 sm-9">
-          <h3>Vegetable-Pasta Oven Omelet</h3>
+          <h3>{props.result.title}</h3>
           <p>
-            Ingredients: "tomato, onions, red pepper, garlic, olive oil,
-            zucchini, cream cheese, vermicelli, eggs, parmesan cheese, milk,
-            italian seasoning, salt, black pepper"
+            Ingredients: "{props.result.ingredients}"
           </p>
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href="http://find.myrecipes.com/recipes/recipefinder.dyn?action=displayRecipe&recipe_id=520763"
+            href={props.result.href}
           >
             Go to recipe!
           </a>
